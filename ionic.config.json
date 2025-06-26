@@ -1,5 +1,7 @@
 {
   "name": "郑慧农",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "vue-vite"
 }
