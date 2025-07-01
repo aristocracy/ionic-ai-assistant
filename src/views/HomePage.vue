@@ -61,7 +61,6 @@ const streamChat = async () => {
     {
       bot_id: '7459240184144773159',
       user_id: 'gcb',
-      stream: true,
       additional_messages: [
         {
           role: RoleType.User,
@@ -101,7 +100,7 @@ const streamChat = async () => {
     } else if (chunk.event === ChatEventType.DONE) {
       // this.isResponsing = false;
     }
-    console.log(chunk);
+    console.log('chunk=>', chunk);
   }
 };
 fetch('https://api.coze.cn/v3/chat', {
