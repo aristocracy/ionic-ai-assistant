@@ -22,6 +22,7 @@
         <ion-ripple-effect></ion-ripple-effect>
       </ion-button>
       <ion-text color="success">{{ message }}</ion-text>
+      <ion-text color="success">{{ content }}</ion-text>
       <!-- <ion-list>
         <MessageListItem v-for="message in messages" :key="message.id" :message="message" />
       </ion-list> -->
@@ -50,6 +51,7 @@ import {
 } from '@ionic/vue';
 import { RoleType, ChatEventType } from '@coze/api';
 const message: Ref = ref<string>('Hello, Ionic Vue!');
+const content = ref<string>('Hello, Ionic Vue!');
 // const router = useRouter();
 const signal = new AbortController().signal;
 const redirct = async () => {
@@ -99,7 +101,7 @@ const streamChat = async () => {
     } else if (chunk.event === ChatEventType.DONE) {
       // this.isResponsing = false;
     }
-    console.log('chunk=>', chunk);
+    content.value = JSON.stringify(chunk.data);
   }
 };
 fetch('https://api.coze.cn/v3/chat', {
