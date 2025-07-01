@@ -75,7 +75,7 @@ const streamChat = async () => {
   );
   for await (const chunk of res) {
     if (chunk.event === ChatEventType.CONVERSATION_CHAT_FAILED) {
-      console.error('Chat failed:', chunk.data.last_error.msg);
+      console.error('Chat failed:', chunk.data.last_error?.msg);
     } else if (chunk.event === ChatEventType.CONVERSATION_CHAT_IN_PROGRESS) {
       // calculateBlockHeight();
     } else if (chunk.event === ChatEventType.CONVERSATION_MESSAGE_DELTA) {
@@ -84,7 +84,7 @@ const streamChat = async () => {
         'reasoning_content'
       );
       const reasoningContent =
-        isReasoning && chunk.data.reasoning_content.length > 0;
+        isReasoning && chunk.data?.reasoning_content.length > 0;
       if (chunk.data.content.length > 0) {
         //console.log(chunk.data.content);
       } else if (reasoningContent) {

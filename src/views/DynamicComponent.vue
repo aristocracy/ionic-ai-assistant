@@ -34,7 +34,7 @@ const componentStatus = ref('无组件');
 type ComponentName = string | null;
 
 // 建立组件名和实际组件的映射
-const componentMap: Record<string, null | ComponentName> = {
+const componentMap: Record<string, null | any> = {
   ComponentA,
   ComponentB,
 };
