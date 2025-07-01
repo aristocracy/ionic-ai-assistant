@@ -83,8 +83,7 @@ const streamChat = async () => {
         chunk.data,
         'reasoning_content'
       );
-      const reasoningContent =
-        isReasoning && chunk.data?.reasoning_content.length > 0;
+      const reasoningContent = isReasoning && chunk.data.content.length < 1;
       if (chunk.data.content.length > 0) {
         //console.log(chunk.data.content);
       } else if (reasoningContent) {
